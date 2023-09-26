@@ -1,0 +1,6 @@
+name: env_fundamentos
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python

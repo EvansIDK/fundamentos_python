@@ -19,3 +19,10 @@ git push origin main
 ### Editor de Código (VS Code)
 
 ### Ambiente Virtual (Conda)
+
+                                                                  
+
+``` 
+conda activate env_fundamentos
+conda deactivate
+```
