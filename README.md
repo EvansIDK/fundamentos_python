@@ -19,7 +19,10 @@ git push origin main
 ### Editor de Código (VS Code)
 
 ### Ambiente Virtual (Conda)
-
+git add .git
+git commit -m "coloque o que foi feito aqui"
+git pull origin main
+git push origin main
                                                                   
 
 ``` 
