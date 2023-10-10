@@ -4,3 +4,8 @@ channels:
   - defaults
 dependencies:
   - python
+  - requests
+  - bs4
+  - tinydb
+  - numpy
+  - pandas
