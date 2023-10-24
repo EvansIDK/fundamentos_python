@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 
 def acessar_pag(url):
@@ -14,9 +15,28 @@ def acessar_pag(url):
 def extrair_infos(lista_links):
     for link in lista_links:
         pagina=acessar_pag(link)[0]
-        titulo= pagina.h1.text
-        print(titulo)   
-
+        notas_imprensa=pagina.find("div",attrs={"id":"content-core"}).find_all("article")
+        for  nota_imprensa in notas_imprensa:
+            titulo=nota_imprensa.h2.text.strip()
+            link=nota_imprensa.a["href"]
+            data=nota_imprensa.find_all("span", attrs={"class":"summary-view-icon"})[0].text.strip()
+            hora=nota_imprensa.find_all("span", attrs={"class":"summary-view-icon"})[1].text.strip()
+            numero_nota=nota_imprensa.find("span", attrs={"class":"subtitle"}).text.strip()
+            numeros_inteiros = re.findall(r'\d+', numero_nota)
+            tentativa=' '.join(numeros_inteiros)
+            conteudo= acessar_pag(link)[0]
+            paragrafos=conteudo.find("div",attrs={"id":"content-core"}).find_all("p")
+            for paragrafo in paragrafos:
+                print(paragrafo)
+            print(titulo)
+            print(link)
+            print(data)
+            print(hora)
+            print(tentativa)
+            print(paragrafos)
+            print("###")
+            #for lide in lista_lide:
+             #   hora=[]
 
 def montar_urls(url):
     radical=url
