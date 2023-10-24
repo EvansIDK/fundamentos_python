@@ -27,13 +27,14 @@ def extrair_infos(lista_links):
             conteudo= acessar_pag(link)[0]
             paragrafos=conteudo.find("div",attrs={"id":"content-core"}).find_all("p")
             for paragrafo in paragrafos:
-                print(paragrafo)
+                info=paragrafo.text.strip()
+                #property="rnews:articleBody"
+                print(info)
             print(titulo)
             print(link)
             print(data)
             print(hora)
             print(tentativa)
-            print(paragrafos)
             print("###")
             #for lide in lista_lide:
              #   hora=[]
