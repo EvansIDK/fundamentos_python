@@ -20,7 +20,7 @@ git push origin main
 
 ### Ambiente Virtual (Conda)
 ```
-git add .git
+git add .
 git commit -m "coloque o que foi feito aqui"
 git pull origin main
 git push origin main

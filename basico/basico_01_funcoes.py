@@ -1,5 +1,6 @@
 import requests
 import re
+from basico_03 import inserir_dados
 from bs4 import BeautifulSoup
 
 def acessar_pag(url):
@@ -23,19 +24,23 @@ def extrair_infos(lista_links):
             hora=nota_imprensa.find_all("span", attrs={"class":"summary-view-icon"})[1].text.strip()
             numero_nota=nota_imprensa.find("span", attrs={"class":"subtitle"}).text.strip()
             numeros_inteiros = re.findall(r'\d+', numero_nota)
-            tentativa=' '.join(numeros_inteiros)
+            numero_nota=' '.join(numeros_inteiros)
             conteudo= acessar_pag(link)[0]
             paragrafos=conteudo.find("div",attrs={"id":"content-core"}).find_all("p")
+            paragrafos_so_texto=[]
             for paragrafo in paragrafos:
                 info=paragrafo.text.strip()
+                paragrafos_so_texto.append(info)
                 #property="rnews:articleBody"
-                print(info)
+               # print(info)
             print(titulo)
             print(link)
             print(data)
             print(hora)
-            print(tentativa)
+            print(numero_nota)
+            print(paragrafos_so_texto)
             print("###")
+            inserir_dados(titulo, link, data, hora, numero_nota, paragrafos_so_texto)
             #for lide in lista_lide:
              #   hora=[]
 
