@@ -214,29 +214,17 @@ class Application():
                          highlightbackground='snow2',
                          highlightthickness=1.5)
     self.frame_2.place(relx=0.1, rely=0.25, relwidth=0.8, relheight=0.63)
-    self.frame_3 = Frame(self.janela,
-                         bd=4,
-                         bg='lavender',
-                         highlightbackground='black',
-                         highlightthickness=2)
-    self.frame_3.place(relx=0.2, rely=0.26, relwidth=0.6, relheight=0.33)
     #botao Voltar
     self.bt_Voltar = Button(self.frame_1, text='Voltar', bg='white')
     self.bt_Voltar.place(relx=0.84, rely=0.92, relwidth=0.15, relheight=0.07)
     #botoes clientes
-    self.bt_cliente1 = Button(self.frame_1, text='Cliente1', bg='snow2')
+    self.bt_cliente1 = Button(self.frame_1, text='Cliente1', bg='snow2', command=self.navigate_to_add_cree)
     self.bt_cliente1.place(relx=0.1, rely=0.33, relwidth=0.35, relheight=0.06)
-    self.bt_cliente2 = Button(self.frame_1, text='Cliente2', bg='snow2')
+    self.bt_cliente2 = Button(self.frame_1, text='Cliente2', bg='snow2', command=self.navigate_to_add_cree)
     self.bt_cliente2.place(relx=0.1, rely=0.41, relwidth=0.35, relheight=0.06)
-    self.bt_cliente3 = Button(self.frame_1, text='Cliente3', bg='snow2')
+    self.bt_cliente3 = Button(self.frame_1, text='Cliente3', bg='snow2', command=self.navigate_to_add_cree)
     self.bt_cliente3.place(relx=0.1, rely=0.49, relwidth=0.35, relheight=0.06)
-    #botao Adicionar
-    self.bt_Adicionar = Button(self.frame_3, text='Adicionar', bg='white', font=("Bahnschrift", 13, 'bold'))
-    self.bt_Adicionar.place(relx=0.05, rely=0.7, relwidth=0.4, relheight=0.2)
-    #Cancelar
-    self.bt_Cancelar = Button(self.frame_3, text='Cancelar', bg='white', font=("Bahnschrift", 13, 'bold'))
-    self.bt_Cancelar.place(relx=0.55, rely=0.7, relwidth=0.4, relheight=0.2)
-
+    
     #criacao das labels
     #logo
     self.lb_logo = Label(self.frame_1, text='Adicionar créditos', bg='lightblue',fg='DarkOrchid4', font=("Bahnschrift", 25, 'bold'))
@@ -268,6 +256,31 @@ class Application():
     self.lb_venda = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
     self.lb_venda.place(relx=0.69, rely=0.49, relwidth=0.21, relheight=0.06)
     
+
+
+  def navigate_to_add_cree(self):
+    self.frame_1.destroy()
+    self.tela_add_cree()
+
+  def tela_add_cree(self):
+    self.janela.title('Adicionar')
+    self.janela.configure(background='lavender')
+    self.janela.geometry("700x500")
+    self.janela.resizable(True, True)
+    self.janela.maxsize(width=900, height=700)
+    self.janela.minsize(width=400, height=300)
+    self.frame_3 = Frame(self.janela,
+                         bd=4,
+                         bg='lavender',
+                         highlightbackground='black',
+                         highlightthickness=2)
+    self.frame_3.place(relx=0.2, rely=0.26, relwidth=0.6, relheight=0.33)
+#botao Adicionar
+    self.bt_Adicionar = Button(self.frame_3, text='Adicionar', bg='white', font=("Bahnschrift", 13, 'bold'))
+    self.bt_Adicionar.place(relx=0.05, rely=0.7, relwidth=0.4, relheight=0.2)
+    #Cancelar
+    self.bt_Cancelar = Button(self.frame_3, text='Cancelar', bg='white', font=("Bahnschrift", 13, 'bold'))
+    self.bt_Cancelar.place(relx=0.55, rely=0.7, relwidth=0.4, relheight=0.2)
     self.lb_add = Label(self.frame_3, text='Digite a quantidade de pontos a serem adicionados:', bg='lavender', font=("Arial", 11))
     self.lb_add.place(relx=0.01, rely=0.01, relwidth=1, relheight=0.13)
     self.add_entry = Entry(self.frame_3)

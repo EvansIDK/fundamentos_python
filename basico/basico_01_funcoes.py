@@ -40,7 +40,7 @@ def extrair_infos(lista_links):
             print(numero_nota)
             print(paragrafos_so_texto)
             print("###")
-            inserir_dados(titulo, link, data, hora, numero_nota, paragrafos_so_texto)
+            inserir_dados(titulo, link, data, hora, numero_nota, paragrafos_so_texto)fo
             #for lide in lista_lide:
              #   hora=[]
 
