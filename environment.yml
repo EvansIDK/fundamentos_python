@@ -9,3 +9,4 @@ dependencies:
   - tinydb
   - numpy
   - pandas
+  - itertools

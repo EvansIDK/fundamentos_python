@@ -51,13 +51,13 @@ class Application():
     self.janela.configure(background='lavender')
     self.frame_menu = Frame(self.janela, bd=4, bg='lightblue', highlightbackground='black', highlightthickness=2)
     self.frame_menu.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.9)
-    self.bt_sair = Button(self.frame_menu, text='Sair', bg='white')
+    self.bt_sair = Button(self.frame_menu, text='Sair', bg='white', command=self.navigate_to_entrar)
     self.bt_sair.place(relx=0.84, rely=0.92, relwidth=0.15, relheight=0.07)
     self.bt_add_livro = Button(self.frame_menu, text='Adicionar livro', bg='lavender', command=self.navigate_to_adicionar_livro)
     self.bt_add_livro.place(relx=0.4, rely=0.3, relwidth=0.2, relheight=0.1)
     self.bt_aprovar = Button(self.frame_menu, text='Aprovar compras', bg='lavender', command=self.navigate_to_aprovar_compra)
     self.bt_aprovar.place(relx=0.4, rely=0.45, relwidth=0.2, relheight=0.1)
-    self.bt_creditos = Button(self.frame_menu, text='Adicionar créditos', bg='lavender', command=self.navigate_to_adicionar_creedito)
+    self.bt_creditos = Button(self.frame_menu, text='Adicionar créditos', bg='lavender', command=self.navigate_to_adicionar_credito)
     self.bt_creditos.place(relx=0.4, rely=0.6, relwidth=0.2, relheight=0.1)
     self.lb_logo = Label(self.frame_menu, text='Menu', bg='lightblue',fg='DarkOrchid4', font=("Bahnschrift", 25, 'bold'))
     self.lb_logo.place(relx=0.32, rely=0.1, relwidth=0.35, relheight=0.1)
@@ -66,14 +66,20 @@ class Application():
     self.frame_menu.destroy()
     self.tela_adicionar_livro()
 
+  def navigate_to_entrar(self):
+    self.frame_menu.destroy()
+    self.tela_entrar()
+    self.frames_da_tela_entrar()
+    self.widgets_entrar()
+    self.on_login_button_click()
+
+  def navigate_to_adicionar_credito(self):
+    self.frame_menu.destroy()
+    self.tela_adicionar_credito()
+
   def navigate_to_aprovar_compra(self):
     self.frame_menu.destroy()
     self.tela_aprovar_compra()
-
-
-  def navigate_to_adicionar_creedito(self):
-    self.frame_menu.destroy()
-    self.tela_adicionar_creedito()
 
   def tela_adicionar_livro(self):
     self.janela.title('Adicionar livro')
@@ -84,7 +90,7 @@ class Application():
                          highlightbackground='black',
                          highlightthickness=2)
     self.frame_1.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.9)
-    self.bt_enviar = Button(self.frame_1, text='Enviar')
+    self.bt_enviar = Button(self.frame_1, text='Enviar', command=self.navigate_to_menu)
     self.bt_enviar.place(relx=0.76, rely=0.85, relwidth=0.2, relheight=0.1)
     self.bt_voltar = Button(self.frame_1, text='Voltar', command=self.navigate_to_menu)
     self.bt_voltar.place(relx=0.76, rely=0.72, relwidth=0.2, relheight=0.1)
@@ -118,7 +124,6 @@ class Application():
     self.conteudo_entry = Entry(self.frame_1)
     self.conteudo_entry.place(relx=0.01, rely=0.55, relwidth=0.44, relheight=0.15)
 
-
   def tela_aprovar_compra(self):
     self.janela.title('Aprovar compras')
     self.janela.configure(background='lavender')
@@ -138,32 +143,18 @@ class Application():
                          highlightbackground='snow2',
                          highlightthickness=1.5)
     self.frame_2.place(relx=0.1, rely=0.25, relwidth=0.8, relheight=0.63)
-    self.frame_3 = Frame(self.janela,
-                         bd=4,
-                         bg='lavender',
-                         highlightbackground='black',
-                         highlightthickness=2)
-    self.frame_3.place(relx=0.25, rely=0.3, relwidth=0.5, relheight=0.27)
     #botao Voltar
-    self.bt_Voltar = Button(self.frame_1, text='Voltar', bg='white')
+    self.bt_Voltar = Button(self.frame_1, text='Voltar', bg='white', command=self.navigate_to_menu)
     self.bt_Voltar.place(relx=0.84, rely=0.92, relwidth=0.15, relheight=0.07)
     #botoes clientes
-    self.bt_cliente1 = Button(self.frame_1, text='Cliente1', bg='snow2')
+    self.bt_cliente1 = Button(self.frame_1, text='Cliente1', bg='snow2', command=self.navigate_to_aprovarr)
     self.bt_cliente1.place(relx=0.1, rely=0.33, relwidth=0.35, relheight=0.06)
-    self.bt_cliente2 = Button(self.frame_1, text='Cliente2', bg='snow2')
+    self.bt_cliente2 = Button(self.frame_1, text='Cliente2', bg='snow2', command=self.navigate_to_aprovarr)
     self.bt_cliente2.place(relx=0.1, rely=0.41, relwidth=0.35, relheight=0.06)
-    self.bt_cliente3 = Button(self.frame_1, text='Cliente3', bg='snow2')
+    self.bt_cliente3 = Button(self.frame_1, text='Cliente3', bg='snow2', command=self.navigate_to_aprovarr)
     self.bt_cliente3.place(relx=0.1, rely=0.49, relwidth=0.35, relheight=0.06)
     #botao aprovar
-    self.bt_Adicionar = Button(self.frame_3, text='Aprovar', bg='white', font=("Bahnschrift", 13, 'bold'))
-    self.bt_Adicionar.place(relx=0.04, rely=0.11, relwidth=0.45, relheight=0.3)
-    #Desaprovar
-    self.bt_Desaprovar = Button(self.frame_3, text='Desaprovar', bg='white', font=("Bahnschrift", 13, 'bold'))
-    self.bt_Desaprovar.place(relx=0.53, rely=0.11, relwidth=0.45, relheight=0.3)
-    #Cancelar
-    self.bt_Cancelar = Button(self.frame_3, text='Cancelar', bg='white', font=("Bahnschrift", 13, 'bold'))
-    self.bt_Cancelar.place(relx=0.3, rely=0.6, relwidth=0.45, relheight=0.3)
-
+    
     #criacao das labels
     #logo
     self.lb_logo = Label(self.frame_1, text='Aprovar compras', bg='lightblue',fg='DarkOrchid4', font=("Bahnschrift", 25, 'bold'))
@@ -183,19 +174,39 @@ class Application():
 
     self.lb_pontos1 = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
     self.lb_pontos1.place(relx=0.45, rely=0.33, relwidth=0.24, relheight=0.06)
-    self.lb_pontos2 = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
-    self.lb_pontos2.place(relx=0.45, rely=0.41, relwidth=0.24, relheight=0.06)
-    self.lb_pontos3 = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
-    self.lb_pontos3.place(relx=0.45, rely=0.49, relwidth=0.24, relheight=0.06)
+    self.lb_pontos1 = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
+    self.lb_pontos1.place(relx=0.45, rely=0.41, relwidth=0.24, relheight=0.06)
+    self.lb_pontos1 = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
+    self.lb_pontos1.place(relx=0.45, rely=0.49, relwidth=0.24, relheight=0.06)
 
     self.lb_venda = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
     self.lb_venda.place(relx=0.69, rely=0.33, relwidth=0.21, relheight=0.06)
-    self.lb_venda2 = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
-    self.lb_venda2.place(relx=0.69, rely=0.41, relwidth=0.21, relheight=0.06)
-    self.lb_venda3 = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
-    self.lb_venda3.place(relx=0.69, rely=0.49, relwidth=0.21, relheight=0.06)
+    self.lb_venda = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
+    self.lb_venda.place(relx=0.69, rely=0.41, relwidth=0.21, relheight=0.06)
+    self.lb_venda = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
+    self.lb_venda.place(relx=0.69, rely=0.49, relwidth=0.21, relheight=0.06)
 
-  def tela_adicionar_creedito(self):
+  def navigate_to_aprovarr(self):
+    self.frame_1.destroy()
+    self.tela_aprovarr()
+
+  def tela_aprovarr(self):
+    self.janela.title('Aprovar')
+    self.frame_31 = Frame(self.janela,
+                         bd=4,
+                         bg='lavender',
+                         highlightbackground='black',
+                         highlightthickness=2)
+    self.frame_31.place(relx=0.25, rely=0.3, relwidth=0.5, relheight=0.3)
+    self.bt_aprovar = Button(self.frame_31, text='Aprovar', bg='white', font=("Bahnschrift", 13, 'bold'), command=self.navigate_to_aprovar_compra)
+    self.bt_aprovar.place(relx=0.22, rely=0.1, relwidth=0.6, relheight=0.4)
+    #desaprovar
+    self.bt_desaprovar = Button(self.frame_31, text='Desprovar', bg='white', font=("Bahnschrift", 13, 'bold'), command=self.navigate_to_aprovar_compra)
+    self.bt_desaprovar.place(relx=0.22, rely=0.53, relwidth=0.6, relheight=0.4)
+    self.bt_desaprovar_cancel = Button(self.frame_31, text='Cancelar', bg='white', font=("Bahnschrift", 13, 'bold'), command=self.navigate_to_aprovar_compra)
+    self.bt_desaprovar_cancel.place(relx=0.22, rely=0.53, relwidth=0.6, relheight=0.4)
+
+  def tela_adicionar_credito(self):
     self.janela.title('Adicionar créditos')
     self.janela.configure(background='lavender')
     self.janela.geometry("700x500")
@@ -214,17 +225,21 @@ class Application():
                          highlightbackground='snow2',
                          highlightthickness=1.5)
     self.frame_2.place(relx=0.1, rely=0.25, relwidth=0.8, relheight=0.63)
+    
+
     #botao Voltar
-    self.bt_Voltar = Button(self.frame_1, text='Voltar', bg='white')
+    self.bt_Voltar = Button(self.frame_1, text='Voltar', bg='white', command=self.navigate_to_menu)
     self.bt_Voltar.place(relx=0.84, rely=0.92, relwidth=0.15, relheight=0.07)
     #botoes clientes
-    self.bt_cliente1 = Button(self.frame_1, text='Cliente1', bg='snow2', command=self.navigate_to_add_cree)
+    self.bt_cliente1 = Button(self.frame_1, text='Cliente1', bg='snow2', command=self.navigate_to_add_cre)
     self.bt_cliente1.place(relx=0.1, rely=0.33, relwidth=0.35, relheight=0.06)
-    self.bt_cliente2 = Button(self.frame_1, text='Cliente2', bg='snow2', command=self.navigate_to_add_cree)
+    self.bt_cliente2 = Button(self.frame_1, text='Cliente2', bg='snow2',command=self.navigate_to_add_cre)
     self.bt_cliente2.place(relx=0.1, rely=0.41, relwidth=0.35, relheight=0.06)
-    self.bt_cliente3 = Button(self.frame_1, text='Cliente3', bg='snow2', command=self.navigate_to_add_cree)
+    self.bt_cliente3 = Button(self.frame_1, text='Cliente3', bg='snow2', command=self.navigate_to_add_cre)
     self.bt_cliente3.place(relx=0.1, rely=0.49, relwidth=0.35, relheight=0.06)
+    #botao Adicionar
     
+
     #criacao das labels
     #logo
     self.lb_logo = Label(self.frame_1, text='Adicionar créditos', bg='lightblue',fg='DarkOrchid4', font=("Bahnschrift", 25, 'bold'))
@@ -256,14 +271,13 @@ class Application():
     self.lb_venda = Label(self.frame_1, text='000000', bg='white', highlightbackground='black', highlightthickness=1)
     self.lb_venda.place(relx=0.69, rely=0.49, relwidth=0.21, relheight=0.06)
     
-
-
-  def navigate_to_add_cree(self):
+    
+  def navigate_to_add_cre(self):
     self.frame_1.destroy()
-    self.tela_add_cree()
+    self.tela_add_cre()
 
-  def tela_add_cree(self):
-    self.janela.title('Adicionar')
+  def tela_add_cre(self):
+    self.janela.title('Adicionar créditos')
     self.janela.configure(background='lavender')
     self.janela.geometry("700x500")
     self.janela.resizable(True, True)
@@ -275,14 +289,12 @@ class Application():
                          highlightbackground='black',
                          highlightthickness=2)
     self.frame_3.place(relx=0.2, rely=0.26, relwidth=0.6, relheight=0.33)
-#botao Adicionar
-    self.bt_Adicionar = Button(self.frame_3, text='Adicionar', bg='white', font=("Bahnschrift", 13, 'bold'))
+    self.bt_Adicionar = Button(self.frame_3, text='Adicionar', bg='white', font=("Bahnschrift", 13, 'bold'),command=self.navigate_to_adicionar_credito)
     self.bt_Adicionar.place(relx=0.05, rely=0.7, relwidth=0.4, relheight=0.2)
     #Cancelar
-    self.bt_Cancelar = Button(self.frame_3, text='Cancelar', bg='white', font=("Bahnschrift", 13, 'bold'))
+    self.bt_Cancelar = Button(self.frame_3, text='Cancelar', bg='white', font=("Bahnschrift", 13, 'bold'), command=self.navigate_to_adicionar_credito)
     self.bt_Cancelar.place(relx=0.55, rely=0.7, relwidth=0.4, relheight=0.2)
-    self.lb_add = Label(self.frame_3, text='Digite a quantidade de pontos a serem adicionados:', bg='lavender', font=("Arial", 11))
-    self.lb_add.place(relx=0.01, rely=0.01, relwidth=1, relheight=0.13)
+
     self.add_entry = Entry(self.frame_3)
     self.add_entry.place(relx=0.3, rely=0.25, relwidth=0.4, relheight=0.18)
 
