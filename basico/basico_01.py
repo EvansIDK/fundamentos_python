@@ -39,3 +39,4 @@ pessoa3 = {'nome': 'Carlos', 'idade': 22, 'cidade': 'Belo Horizonte'}
 print(f"Nome: {pessoa1['nome']}, Idade: {pessoa1['idade']}, Cidade: {pessoa1['cidade']}")
 print(f"Nome: {pessoa2['nome']}, Idade: {pessoa2['idade']}, Cidade: {pessoa2['cidade']}")
 print(f"Nome: {pessoa3['nome']}, Idade: {pessoa3['idade']}, Cidade: {pessoa3['cidade']}")
+
