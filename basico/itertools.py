@@ -8,9 +8,10 @@ de combinação ao receber um valor de 'itens' serem combinados, neste caso ABCD
 neste caso em especifico 2. É importante se atentar ao fato que, na combinação, a ordem apresenta um papel importante.
 """
 #combination exemplo do vídeo
-combinacao=combinations('ABCDE', 2)
-print(f"combinations: {list(combinacao)}")
-print("   ")
+def combinando():
+    combinacao=combinations('ABCDE', 2)
+    print(f"combinations: {list(combinacao)}")
+    print("   ")
 
 ###
 
@@ -22,9 +23,10 @@ a ordem que os valores são inseridos não apresenta um papel importante, visto 
 diferentes, por exemplo, podem aparecer na seqûencia tanto A,D quando D,A.
 """
 #permutation
-permutacao=permutations('ADFV',4)
-print(f"permutations: {list(permutacao)}")
-print("   ")
+def permuta():
+    permutacao=permutations('ADFV',4)
+    print(f"permutations: {list(permutacao)}")
+    print("   ")
 
 ###
 
@@ -33,12 +35,13 @@ PRODUCT:Abaixo se encontra a função combinatória product que utiliza das list
 contendo as possibilidades de combinações das duas primeiras.
 """
 #product
-cores= ["azul", "verde", "roxo", "vermelho", "amarelo", "laranja"]
-num= [15, 5, 8, 7, 10,6]
-produto=(product(cores, num))
-produto_final=list(produto)
-print (f"products: {produto_final}")
-print("   ")
+def prod():
+    cores= ["azul", "verde", "roxo", "vermelho", "amarelo", "laranja"]
+    num= [15, 5, 8, 7, 10,6]
+    produto=(product(cores, num))
+    produto_final=list(produto)
+    print (f"products: {produto_final}")
+    print("   ")
 
 ###
 
@@ -47,11 +50,12 @@ PAIRWISE: Outra função combinátoria é o pair wise que, ao ser fornecido com 
 contudo, é limitado a apenas resultados com dois valores e não é capaz de mesclar listas, apenas criando pares como seu nome indica.
 """
 #pairwise
-pizza_sabores= ["camarão", "mussarela", "frango", "calabresa", "portuguesa", "frango"]
-pares=(pairwise(pizza_sabores))
-pares_final=list(pares)
-print (f"Pares : {pares_final}")
-print("   ")
+def pairwisee():
+    pizza_sabores= ["camarão", "mussarela", "frango", "calabresa", "portuguesa", "frango"]
+    pares=(pairwise(pizza_sabores))
+    pares_final=list(pares)
+    print (f"Pares : {pares_final}")
+    print("   ")
 
 ###
 
@@ -61,12 +65,13 @@ visto que, é possível inserir o comando 'fillvalue=n' ao lado das listas que s
 preenchido com o que estiver escrito após o =.
 """
 #zip_longest
-pizza_sabores= ["camarão", "mussarela", "frango", "calabresa", "portuguesa", "frango"]
-pizza_valores= [15, 5, 8, 7, 10]
-juncao=(zip_longest(pizza_sabores, pizza_valores, fillvalue=None))
-uniao=list(juncao)
-print (f"União : {uniao}")
-print("   ")
+def zipl():
+    pizza_sabores= ["camarão", "mussarela", "frango", "calabresa", "portuguesa", "frango"]
+    pizza_valores= [15, 5, 8, 7, 10]
+    juncao=(zip_longest(pizza_sabores, pizza_valores, fillvalue=None))
+    uniao=list(juncao)
+    print (f"União : {uniao}")
+    print("   ")
 
 ###
 
@@ -75,26 +80,28 @@ no momento de exibi-la. Para utiliza-la, é preciso criar uma função que estab
 ao ser alimentada pela lista, a função irá buscar pela nome jose, que é como a varivel s foi definida. Após isto, se cria a lista
 com os elemento e, logo na linha seguinte, se cria uma nova varivel que ir"""
 #filter
-def funcao_filter(s):
-    return s=='jose'
-dados = [True, True, 'jose']
-filters = filter(funcao_filter,dados) #precisa de 2 valores, um indicando como filtrar e o outro onde filtrar
-result = list(filters)
-print(f"funcao_filter:{result}")
-print("   ")
+def nfilter():
+    def funcao_filter(s):
+        return s=='jose'
+    dados = [True, True, 'jose']
+    filters = filter(funcao_filter,dados) #precisa de 2 valores, um indicando como filtrar e o outro onde filtrar
+    result = list(filters)
+    print(f"funcao_filter:{result}")
+    print("   ")
 
 ###
 
 """FILTERFALSE: filterfalse é como o nome indica, uma função oposta ao do filter, inserindo na lista final o contrário do que foi proposto,
 como no exemplo a seguir em que ao ser solicitado o true, é retornado apenas o false."""
 #filter false usando booleano
-def filtro(f):
-    return f is True
-dado = [True, False, True, False, True, False]
-valores= filterfalse(filtro, dado)
-resultado = list(valores)
-print(f"funcao_filter_false:{resultado}")
-print("   ")
+def ffiltro():
+    def filtro(f):
+        return f is True
+    dado = [True, False, True, False, True, False]
+    valores= filterfalse(filtro, dado)
+    resultado = list(valores)
+    print(f"funcao_filter_false:{resultado}")
+    print("   ")
 
 ###
 
@@ -102,13 +109,14 @@ print("   ")
 a função de somar os valores abaixo agrega valores de x e y para números das tuplas e determina que sejam somados, assim, se torna possível 
 aplicar o procedimento a lista de tuplas."""
 #starmap
-def star_map(x, y):
-    return x+y
-pares = [(1, 2), (3, 4), (5, 5)]
-somado = starmap(star_map, pares)
-result = list(somado)
-print(f"funcao_star_map:{result}")
-print("   ")
+def star():
+    def star_map(x, y):
+        return x+y
+    pares = [(1, 2), (3, 4), (5, 5)]
+    somado = starmap(star_map, pares)
+    result = list(somado)
+    print(f"funcao_star_map:{result}")
+    print("   ")
 
 ###
 
@@ -117,10 +125,11 @@ dentro dela um start, para determinar em qual número a contagem deve começar, 
 andar (por exemplo de dois em dois). Já o slice permite "andar" dentro desta váriavel, tornando a função lazy e fazendo com que seja 
 preciso informar o número desejad de valores do contador para que sejam exibidos."""
 #count e islice(para que tenha um limite)
-valoress = count(start=0, step=3)
-result = islice(valoress, 5)
-print(f"count_islice:{list(result)}")
-print("   ")
+def cois():
+    valoress = count(start=0, step=3)
+    result = islice(valoress, 5)
+    print(f"count_islice:{list(result)}")
+    print("   ")
 
 ###
 
@@ -131,71 +140,97 @@ função cycle na lista semafaro. Para o repeat, se cria um "for" para andar pel
 está sendo lido e o next, para sempre passar para o próximo item do ciclo, no número de vezes que for informado dentro do repeat, neste 
 caso 6."""
 #cycle
-semafaro = ['verde', 'amarelo', 'vermelho']
-ciclo = cycle(semafaro)
-for item in repeat(ciclo,6):
-    item = next(ciclo)
-    print(f"ciclo_repeat:{item}")
-    time.sleep(0)
-print("   ")
+def cyre():
+    semafaro = ['verde', 'amarelo', 'vermelho']
+    ciclo = cycle(semafaro)
+    for item in repeat(ciclo,6):
+        item = next(ciclo)
+        print(f"ciclo_repeat:{item}")
+        time.sleep(0)
+    print("   ")
 
 ###
 
 """ACCUMULATE: A função accumulate, como o nome indica, realiza a acumulação ao realizar o ato que for solicitado dentro do lambda, 
 no caso abaixo sendo a soma, assim ela passa de elemento em elemento, fazendo 1, 1+2, 3+3, 6+4"""
 #accumulate
-print(f"accumulate:{list (accumulate([1,2,3,4],lambda x,y:x+y))}")
-print("   ")
+def acumulando():
+    print(f"accumulate:{list (accumulate([1,2,3,4],lambda x,y:x+y))}")
+    print("   ")
 
 ###
 
 """TAKEWHILE: A função takewhile faz com que a lista seja lida até que se encontre um elemento diferente do proposto na lambda"""
 #takewhile
-lista=takewhile(lambda x:x!=3,[1,2,3,4])
-print(f"takewhile:{list(lista)}")
-print("   ")
+def taking():
+    lista=takewhile(lambda x:x!=3,[1,2,3,4])
+    print(f"takewhile:{list(lista)}")
+    print("   ")
 ###
 
 """DROPWHILE: A função dropwhile faz com que a lista seja lida a partir do momento que se e contra um elemento diferente do proposto na 
 lambda, coo neste caso ao se pedir algo diferente de 3, a lista só vai começar a ser lida do número 3 em diante, já que ele irá o que vem 
 antes desse elemento em questão."""
 #dropwhile
-lista=dropwhile(lambda x:x!=3,[1,2,3,4])
-print(f"dropwhile:{list(lista)}")
-print("   ")
+def dropping():
+    lista=dropwhile(lambda x:x!=3,[1,2,3,4])
+    print(f"dropwhile:{list(lista)}")
+    print("   ")
 
 ###
 
 """CHAIN: Une dois iterados em um único."""
 #chain
-print(f"juncao_iterados:{list(chain(iter('abc'), iter('defg')))}")
-print("   ")
+def chaining():
+    print(f"juncao_iterados:{list(chain(iter('abc'), iter('defg')))}")
+    print("   ")
 
 ###
 
 """COMPRESS: Relaciona valores de determinada lista com respectivos valores de outra, agregando caracteristas de verdadeiro ou falso."""
 #compress
-dados=['a','b','c']
-dados2=[True,False,True]
+def compressing():
+    dados=['a','b','c']
+    dados2=[True,False,True]
 
-for i in compress(dados,dados2):
-    print(f"Verdadeiros:{i}")
-    print("   ")
+    for i in compress(dados,dados2):
+        print(f"Verdadeiros:{i}")
+        print("   ")
 
 """REDUCE: Reduce é uma função do functools, outro banco de funções, que realiza algo de maneira semelhante ao accumulate, porém de forma
 direta."""
 #functools reduce
-print(f"reduce:{reduce(lambda x,y:x+y,[1,2,3,4])}")
+def reduzz():
+    print(f"reduce:{reduce(lambda x,y:x+y,[1,2,3,4])}")
 
 ###
 
 def main():
-    
+    #product, zip_longest, , starmap, count, islice, permutations, cycle, pairwise, repeat, takewhile, dropwhile, chain, compress
     qual=input("qual função gostaria de rodar? ")
-    if qual=="a":
-        pass
-    else:
-        print("h")
 
+    if qual=="combination":
+        combinando()
+
+    elif qual=="accumulate":
+        exemplo_lambda()
+
+    elif qual=="product":
+        exemplo_lambda()
+
+    elif qual=="ziplongest":
+        exemplo_lambda()
+
+    elif qual=="starmap":
+        ffiltro() 
+
+    elif qual=="count/islice":
+        reduzz()
+
+    elif qual=="permutations":
+        reducee()
+
+    elif qual=="cycle/repeat":
+        reducee()
 if __name__=="__main__":
     main()
