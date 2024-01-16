@@ -3,7 +3,7 @@ from functools import reduce
 import time
 
 """
-COMBINATIONS: O exemplo abaixo é de uma função combinatória do itertool, o combination, que consiste em uma função que cria possibilidades
+1. COMBINATIONS: O exemplo abaixo é de uma função combinatória do itertool, o combination, que consiste em uma função que cria possibilidades
 de combinação ao receber um valor de 'itens' serem combinados, neste caso ABCDE, e o numero de itens que podem estar presentes,
 neste caso em especifico 2. É importante se atentar ao fato que, na combinação, a ordem apresenta um papel importante.
 """
@@ -16,7 +16,7 @@ def combinando():
 ###
 
 """
-PERMUTATIONS:O exemplo abaixo é de uma função combinatória do itertool, o permutation, que, talqual o combination, consiste em uma função  
+2. PERMUTATIONS:O exemplo abaixo é de uma função combinatória do itertool, o permutation, que, talqual o combination, consiste em uma função  
 que cria possibilidades de combinação ao receber um valor de 'itens' serem combinados, neste caso ADFV, e o numero de itens que podem 
 estar presentes nesta combinação, neste caso em especifico 4. É importante se atentar ao fato que, na permutação, 
 a ordem que os valores são inseridos não apresenta um papel importante, visto que as combinação permitem valores se repitam em ordens
@@ -31,7 +31,7 @@ def permuta():
 ###
 
 """
-PRODUCT:Abaixo se encontra a função combinatória product que utiliza das lista que lhe forem oferecidas para criar uma terceira lista
+3. PRODUCT:Abaixo se encontra a função combinatória product que utiliza das lista que lhe forem oferecidas para criar uma terceira lista
 contendo as possibilidades de combinações das duas primeiras.
 """
 #product
@@ -46,7 +46,7 @@ def prod():
 ###
 
 """
-PAIRWISE: Outra função combinátoria é o pair wise que, ao ser fornecido com uma lista de itens, cria uma lista de tuplas de possibilidades, 
+4. PAIRWISE: Outra função combinátoria é o pair wise que, ao ser fornecido com uma lista de itens, cria uma lista de tuplas de possibilidades, 
 contudo, é limitado a apenas resultados com dois valores e não é capaz de mesclar listas, apenas criando pares como seu nome indica.
 """
 #pairwise
@@ -60,7 +60,7 @@ def pairwisee():
 ###
 
 """
-ZIP_LONGEST:Abaixo se encontra a função zip_longest, que exerce seu papel através da sua capacidade de unir listas de tamanhos diferentes 
+5. ZIP_LONGEST:Abaixo se encontra a função zip_longest, que exerce seu papel através da sua capacidade de unir listas de tamanhos diferentes 
 visto que, é possível inserir o comando 'fillvalue=n' ao lado das listas que serão unidas, permitindo assim que o valor ausente seja 
 preenchido com o que estiver escrito após o =.
 """
@@ -75,7 +75,7 @@ def zipl():
 
 ###
 
-"""FILTER: Filter é uma função que como o própio nome indica, é capaz de filtrar e ignorar determinados valores dentro de uma lista
+"""6. FILTER: Filter é uma função que como o própio nome indica, é capaz de filtrar e ignorar determinados valores dentro de uma lista
 no momento de exibi-la. Para utiliza-la, é preciso criar uma função que estabeleça o que exatamente deve ser buscado, neste caso,
 ao ser alimentada pela lista, a função irá buscar pela nome jose, que é como a varivel s foi definida. Após isto, se cria a lista
 com os elemento e, logo na linha seguinte, se cria uma nova varivel que ir"""
@@ -91,7 +91,7 @@ def nfilter():
 
 ###
 
-"""FILTERFALSE: filterfalse é como o nome indica, uma função oposta ao do filter, inserindo na lista final o contrário do que foi proposto,
+"""7. FILTERFALSE: filterfalse é como o nome indica, uma função oposta ao do filter, inserindo na lista final o contrário do que foi proposto,
 como no exemplo a seguir em que ao ser solicitado o true, é retornado apenas o false."""
 #filter false usando booleano
 def ffiltro():
@@ -105,7 +105,7 @@ def ffiltro():
 
 ###
 
-"""STARMAP: starmap é uma função que permite apllicar determinadas funções dentro de tuplas, como no exemplo abaixo em que
+"""8. STARMAP: starmap é uma função que permite apllicar determinadas funções dentro de tuplas, como no exemplo abaixo em que
 a função de somar os valores abaixo agrega valores de x e y para números das tuplas e determina que sejam somados, assim, se torna possível 
 aplicar o procedimento a lista de tuplas."""
 #starmap
@@ -120,7 +120,7 @@ def star():
 
 ###
 
-"""COUNT e ISLICE: A função count pcria um contador em uma váriavel; nela é criada uma varivel que receberá a função e 
+"""9. COUNT e ISLICE: A função count pcria um contador em uma váriavel; nela é criada uma varivel que receberá a função e 
 dentro dela um start, para determinar em qual número a contagem deve começar, e um step para definiir de quanto em quanto a contagem deve 
 andar (por exemplo de dois em dois). Já o slice permite "andar" dentro desta váriavel, tornando a função lazy e fazendo com que seja 
 preciso informar o número desejad de valores do contador para que sejam exibidos."""
@@ -133,7 +133,7 @@ def cois():
 
 ###
 
-"""CYCLE e REPEAT: A função cycle cria, coo o nome indica, um ciclo de elementos que será repetido seguindo a ordem indicada.
+"""10. CYCLE e REPEAT: A função cycle cria, coo o nome indica, um ciclo de elementos que será repetido seguindo a ordem indicada.
 Já a o repeat faz com que a função em questão seja repetida um determinado número de vezes. Nesse caso em questão a união deles permitiu
 se criar um semafaro, onde a variavel semafaro recebe uma lista, em seguida se é criado a variavel ciclo, que vai receber a aplicação da
 função cycle na lista semafaro. Para o repeat, se cria um "for" para andar pela lista, em que a varivel usada deve receber o nome do que 
@@ -146,12 +146,12 @@ def cyre():
     for item in repeat(ciclo,6):
         item = next(ciclo)
         print(f"ciclo_repeat:{item}")
-        time.sleep(0)
+        time.sleep(1)
     print("   ")
 
 ###
 
-"""ACCUMULATE: A função accumulate, como o nome indica, realiza a acumulação ao realizar o ato que for solicitado dentro do lambda, 
+"""11. ACCUMULATE: A função accumulate, como o nome indica, realiza a acumulação ao realizar o ato que for solicitado dentro do lambda, 
 no caso abaixo sendo a soma, assim ela passa de elemento em elemento, fazendo 1, 1+2, 3+3, 6+4"""
 #accumulate
 def acumulando():
@@ -160,7 +160,7 @@ def acumulando():
 
 ###
 
-"""TAKEWHILE: A função takewhile faz com que a lista seja lida até que se encontre um elemento diferente do proposto na lambda"""
+"""12. TAKEWHILE: A função takewhile faz com que a lista seja lida até que se encontre um elemento diferente do proposto na lambda"""
 #takewhile
 def taking():
     lista=takewhile(lambda x:x!=3,[1,2,3,4])
@@ -168,7 +168,7 @@ def taking():
     print("   ")
 ###
 
-"""DROPWHILE: A função dropwhile faz com que a lista seja lida a partir do momento que se e contra um elemento diferente do proposto na 
+"""13. DROPWHILE: A função dropwhile faz com que a lista seja lida a partir do momento que se e contra um elemento diferente do proposto na 
 lambda, coo neste caso ao se pedir algo diferente de 3, a lista só vai começar a ser lida do número 3 em diante, já que ele irá o que vem 
 antes desse elemento em questão."""
 #dropwhile
@@ -179,7 +179,7 @@ def dropping():
 
 ###
 
-"""CHAIN: Une dois iterados em um único."""
+"""14. CHAIN: Une dois iterados em um único."""
 #chain
 def chaining():
     print(f"juncao_iterados:{list(chain(iter('abc'), iter('defg')))}")
@@ -187,7 +187,7 @@ def chaining():
 
 ###
 
-"""COMPRESS: Relaciona valores de determinada lista com respectivos valores de outra, agregando caracteristas de verdadeiro ou falso."""
+"""15. COMPRESS: Relaciona valores de determinada lista com respectivos valores de outra, agregando caracteristas de verdadeiro ou falso."""
 #compress
 def compressing():
     dados=['a','b','c']
@@ -197,7 +197,7 @@ def compressing():
         print(f"Verdadeiros:{i}")
         print("   ")
 
-"""REDUCE: Reduce é uma função do functools, outro banco de funções, que realiza algo de maneira semelhante ao accumulate, porém de forma
+"""16. REDUCE: Reduce é uma função do functools, outro banco de funções, que realiza algo de maneira semelhante ao accumulate, porém de forma
 direta."""
 #functools reduce
 def reduzz():
@@ -206,31 +206,72 @@ def reduzz():
 ###
 
 def main():
-    #product, zip_longest, , starmap, count, islice, permutations, cycle, pairwise, repeat, takewhile, dropwhile, chain, compress
+    print("""Funções:
+    product,
+    zip_longest,
+    combinations,
+    filter,
+    filterfalse,
+    starmap,
+    count/islice,
+    permutations,
+    cycle/repeat,
+    pairwise,
+    accumulate,
+    reduce,
+    takewhile,
+    dropwhile,
+    chain,
+    compress""")
+
     qual=input("qual função gostaria de rodar? ")
 
     if qual=="combination":
         combinando()
 
     elif qual=="accumulate":
-        exemplo_lambda()
+        acumulando()
+    
+    elif qual=="filter":
+        nfilter()
+
+    elif qual=="filter_false":
+        ffiltro()
+
+    elif qual=="pairwise":
+        pairwisee()
 
     elif qual=="product":
-        exemplo_lambda()
+        prod()
+
+    elif qual=="takewhile":
+        taking()
+
+    elif qual=="dropwhile":
+        dropping()
 
     elif qual=="ziplongest":
-        exemplo_lambda()
+        zipl()
 
     elif qual=="starmap":
-        ffiltro() 
+        star() 
 
     elif qual=="count/islice":
-        reduzz()
+        cois()
 
     elif qual=="permutations":
-        reducee()
+        permuta()
 
     elif qual=="cycle/repeat":
-        reducee()
+        cyre()
+
+    elif qual=="chain":
+        chaining()
+
+    elif qual=="compress":
+        compressing()
+
+    elif qual=="reduce":
+        reduzz()
 if __name__=="__main__":
     main()
